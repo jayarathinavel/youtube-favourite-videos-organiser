@@ -159,3 +159,11 @@ a:active {
     float: right;
     font-size: inherit;
 }
+
+.not-logged-in {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgb(118, 118, 118);
+    background-color: rgb(230, 155, 130);
+}

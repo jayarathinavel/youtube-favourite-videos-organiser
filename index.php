@@ -11,39 +11,14 @@
 <body>
   
   <?php
+  include("./isloggedin.php");
   include("./database.php");
   include("./apikey.php");
-
-  //Method to get the Duration of video.
-  function getDuration($videoID, $apikey){
-    $dur = file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=$videoID&key=$apikey");
-    $VidDuration =json_decode($dur, true);
-    foreach ($VidDuration['items'] as $vidTime){
-        $VidDuration= $vidTime['contentDetails']['duration'];
-    }
-    preg_match_all('/(\d+)/',$VidDuration,$parts);
-    return $parts[0][0] . ":" . $parts[0][1]; // Return MM:SS
-  }
-
-  //Method to get the title of video
-  function getTitle($videoID, $apikey){
-    $url = "https://www.googleapis.com/youtube/v3/videos?id=" . $videoID . "&key=" . $apikey . "&part=snippet,contentDetails,statistics,status";
-    $json = file_get_contents($url);
-    $getData = json_decode( $json , true);
-    foreach((array)$getData['items'] as $key => $gDat){
-      $title = $gDat['snippet']['title'];
-    }
-    return $title;
-  }
-
-  //Method to get thumbnail of the video
-  function getThumbnail($videoID){
-    $thumbnail_url = "https://i.ytimg.com/vi/".$videoID."/mqdefault.jpg";
-    return $thumbnail_url;
-  }
+  include("./get-username.php");
+  include("./youtube-api.php");
 
   //To fetch tags links
-  $tagsQuery = "SELECT tags FROM ytfvo";
+  $tagsQuery = "SELECT tags FROM ytfvo WHERE user = '$username'";
   $tagsResult = $conn->query($tagsQuery);
   $tagsArray = array();
   $tagsSingle = array();
@@ -61,14 +36,17 @@
 
   $tagsUnique = array_unique($tagsSingle);
 
+  //Main Queries
   if (isset($_GET['isTagSelected'])) {
     $tagname = $_GET['tagName'];
-    $sql = "SELECT `url`,`tags`,`sequence` FROM ytfvo WHERE tags LIKE '%$tagname%' ORDER BY `sequence`";
+    $sql = "SELECT `url`,`tags`,`sequence` FROM ytfvo WHERE tags LIKE '%$tagname%' AND user = '$username' ORDER BY `sequence`";
   } else {
-    $sql = "SELECT `url`,`tags`,`sequence` FROM ytfvo ORDER BY `sequence`";
+    $sql = "SELECT `url`,`tags`,`sequence` FROM ytfvo WHERE user = '$username' ORDER BY `sequence`";
   }
+
   //Main select Query execution
   $result = $conn->query($sql);
+
   //Navbar
   echo '<div id="navbar">';
   echo '<a href="/index.php" id="home">Home</a>';
@@ -92,7 +70,11 @@
   <a href="/insert/form.html" style="float:right;" id ="insert" > Insert </a>
   <a href="/index.php?editMode=true" style="float:right;" id="edit"> Edit </a>
   </div>';
+  
   //Main Container
+  if(!$isLoggedIn){
+    echo '<div class="not-logged-in"> You are not logged in, <a href="./login.php"> login </a> to see your own content </div>';
+  }
   echo '<div class="thumbnail-container">';
   if ($result->num_rows>0) {
     while ($row = $result->fetch_assoc()) {
