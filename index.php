@@ -48,28 +48,7 @@
   $result = $conn->query($sql);
 
   //Navbar
-  echo '<div id="navbar">';
-  echo '<a href="/index.php" id="home">Home</a>';
-  
-  echo '<select id="tags">';
-  echo '<option> Select a tag </option>';
-
-  echo '<option value="/index.php"> All </option>';
-  for ($i = 0; $i < count($tagsSingle); $i++) {
-    if ($tagsUnique[$i]) { //To filter the empty array values
-      if($tagsUnique[$i] == $_GET['tagName']){ //For Default value in Select
-        echo '<option value="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '" selected>' . $tagsUnique[$i] . '</option>';
-      }
-      else{
-        echo '<option value="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '">' . $tagsUnique[$i] . '</option>';
-      }
-    }
-  }
-
-  echo '</select>
-  <a href="/insert/form.html" style="float:right;" id ="insert" > Insert </a>
-  <a href="/index.php?editMode=true" style="float:right;" id="edit"> Edit </a>
-  </div>';
+  include("./nav-bar.php");
   
   //Main Container
   if(!$isLoggedIn){
@@ -115,21 +94,6 @@
 
   <div id= "footer">
   </div>
-  <script>
-    //For dropdown
-    document.getElementById("tags").onchange = function() {
-      if (this.selectedIndex !== 0) {
-        window.location.href = this.value;
-      }
-    };
-
-    //For responsive nav bar
-    if(screen.width <= 600){
-      document.getElementById("edit").innerHTML = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>';
-      document.getElementById("insert").innerHTML = '<i class="fa fa-plus-square-o" aria-hidden="true"></i>';
-      document.getElementById("home").innerHTML = '<i class="fa fa-home" aria-hidden="true"></i>';
-    }
-</script>
-
+  <script src="./resources/script.js"></script>
 </body>
 </html>

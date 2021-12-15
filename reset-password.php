@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-success" value="Submit">
-                    <a class="btn btn-link ml-2" href="welcome.php">Cancel</a>
+                    <a class="btn btn-link ml-2" href="dashboard.php">Cancel</a>
                 </div>
             </form>
         </div>
