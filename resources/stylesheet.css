@@ -143,6 +143,20 @@ a:active {
     background-color: #333;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 96%;
+}
+
+.thumbnail-container {
+    padding: 16px;
+}
+
+.sticky+.thumbnail-container {
+    padding-top: 60px;
+}
+
 .title {
     white-space: nowrap;
     overflow: hidden;

@@ -9,10 +9,13 @@
 <body>
   
 <?php
+include("../login-required.php");
 include("../database.php");
+include("../isloggedin.php");
+include("../get-username.php");
 $url = $_REQUEST['url'];
 $tags = $_REQUEST['tags'];
-$sql = "INSERT INTO ytfvo (`url`,`tags`) VALUES ('$url', '$tags')";
+$sql = "INSERT INTO ytfvo (`url`,`tags`,`user`) VALUES ('$url','$tags','$username')";
   
 if ($conn->query($sql) === TRUE) {
 } else {

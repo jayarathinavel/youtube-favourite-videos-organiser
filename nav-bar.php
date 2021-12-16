@@ -1,4 +1,5 @@
 <?php
+    include("./isloggedin.php");
     $username = $_SESSION["username"];
 
     echo '<div id="navbar">';
@@ -18,8 +19,9 @@
         }
     }
     }
-
-    echo '</select>
+    echo '</select>';
+    if($isLoggedIn){
+        echo '
         <div onclick="myFunction()" class="dropdown" style="float:right;" >
         <div id="user">'.$username.'</div>
             <div id="myDropdown" class="dropdown-content">
@@ -27,6 +29,9 @@
                 3
             </div>
         </div>
+        ';
+    }
+    echo '        
     <a href="/insert/form.html" style="float:right;" id ="insert" > Insert </a>
     <a href="/index.php?editMode=true" style="float:right;" id="edit"> Edit </a>
     </div>';
