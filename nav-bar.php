@@ -3,7 +3,7 @@
     $username = $_SESSION["username"];
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+  <div class="container-fluid ms-5">
     <a class="navbar-brand" href="/index.php">YTFVO</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -41,22 +41,28 @@
           </div>
         </li>
       </ul>
-      <div class="d-flex">
+      <div class="d-flex me-5">
           <?php
             if($isLoggedIn){
                 echo '
-                <div class="btn-group dropstart">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                    '.$username.'
-                    </button>
-                    <ul class="dropdown-menu">                    
-                    <li><a href="./dashboard.php" class="dropdown-item" > Dashboard </a></li>
-                    <li><a href="./logout.php" class="dropdown-item" > Logout </a></li>
-                    </ul>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./dashboard.php">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="./logout.php">Logout</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                  </ul>
+                  <button type="button" class="btn btn-secondary">'.$username.'</button>
                 </div>';
             }
             else{
-                echo '<a href="./login.php" class="btn btn-secondary"> Login </a>';
+                echo '
+                <button class="btn btn-secondary">
+                  <a href="./login.php" class="btn btn-secondary"> Login </a>
+                </button>';
+                  
             }
           ?>
       </div>
