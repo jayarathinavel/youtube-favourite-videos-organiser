@@ -1,46 +1,28 @@
-//For dropdown of select tags
-document.getElementById("tags").onchange = function() {
-    if (this.selectedIndex !== 0) {
-        window.location.href = this.value;
-    }
-};
-
-//For responsive nav bar
-if (screen.width <= 600) {
-    document.getElementById("edit").innerHTML = '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>';
-    document.getElementById("insert").innerHTML = '<i class="fa fa-plus-square-o" aria-hidden="true"></i>';
-    document.getElementById("home").innerHTML = '<i class="fa fa-home" aria-hidden="true"></i>';
-    document.getElementById("user").innerHTML = '<i id ="icon" class="fa fa-user" aria-hidden="true"></i>';
-    document.getElementById("myDropdown").style.marginLeft = '-120px';
-}
-
-//For dropdown
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    if (!(event.target.matches('.dropdown') || event.target.matches('#user') || event.target.matches('#icon'))) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
+//To Include HTML Files
+function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                    /* Remove the attribute, and call this function once more: */
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                }
             }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
         }
-    }
-}
-
-//Sticky Navbar
-window.onscroll = function() { myFunctionSticky() };
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
-
-function myFunctionSticky() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-    } else {
-        navbar.classList.remove("sticky");
     }
 }

@@ -17,26 +17,6 @@
         font-family: 'Hk Grotesk', sans-serif;
     }
     
-    a:link {
-        color: rgb(0, 18, 78);
-        text-decoration: none;
-    }
-    
-    a:visited {
-        color: rgb(145, 79, 3);
-        text-decoration: none;
-    }
-    
-    a:hover {
-        color: rgb(25, 80, 231);
-        text-decoration: none;
-    }
-    
-    a:active {
-        color: blue;
-        text-decoration: none;
-    }
-    
     .div-center {
         display: flex;
         flex-wrap: wrap;
@@ -49,19 +29,17 @@
     }
     
     .thumbnail-div {
-        box-shadow: 0 2px 4px 0 rgba(37, 37, 37, 0.2), 0 3px 10px 0 rgba(37, 37, 37, 0.2);
         padding: 0.5%;
         max-width: 23%;
         -ms-flex: 23%;
         flex: 23%;
         display: inline-block;
         margin: 0.2% 0.2% 0.2% 0.2%;
-        border: 1px solid rgb(255, 255, 255);
+        border: 1px solid rgb(75, 75, 75);
     }
     
     .thumbnail-div:hover {
-        border: 1px solid rgb(151, 151, 151);
-        background-color: rgb(223, 223, 223);
+        opacity: 90%;
     }
     
     .thumbnail-container {
@@ -100,69 +78,16 @@
             max-width: 92%;
         }
     }
-    /* For Nav Bar */
-    
-    #navbar {
-        overflow: hidden;
-        background-color: #333;
-        /* display: flex;
-        flex-wrap: wrap;
-        justify-content: center; */
-        padding-left: 2%;
-        padding-right: 2%;
-    }
-    
-    #navbar a {
-        color: #f2f2f2;
-    }
-    
-    .navbar-a {
-        float: left;
-        display: inline;
-        background-color: rgb(23, 26, 26);
-        text-align: center;
-        padding: 5px 20px 5px 20px;
-        margin: 1% 0.15% 1% 0.15%;
-        text-decoration: none;
-        border: 2px solid rgb(8, 8, 8);
-        border-radius: 5px;
-    }
-    
-    #navbar select {
-        display: inline;
-        color: #f2f2f2;
-        background-color: rgb(23, 26, 26);
-        text-align: center;
-        padding: 6px 0px 6px 0px;
-        margin: 1% 0.15% 1% 0.15%;
-        text-decoration: none;
-        border: 2px solid rgb(8, 8, 8);
-        border-radius: 5px;
-    }
-    
-    .navbar-a:hover {
-        background-color: #333;
-    }
-    
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 96%;
-    }
-    
-    .thumbnail-container {
-        padding: 16px;
-    }
-    
-    .sticky+.thumbnail-container {
-        padding-top: 60px;
-    }
     
     .title {
         white-space: nowrap;
         overflow: hidden;
         margin-top: -1%;
         margin-bottom: -1%;
+    }
+    
+    .title a {
+        text-decoration: none;
     }
     
     .modify-update {
@@ -173,61 +98,4 @@
     .modify-delete {
         float: right;
         font-size: inherit;
-    }
-    
-    .not-logged-in {
-        text-align: center;
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid rgb(118, 118, 118);
-        background-color: rgb(230, 155, 130);
-    }
-    /* For Dropdown */
-    
-    .dropdown {
-        position: relative;
-        display: block;
-        display: inline;
-        color: #ffffff;
-        background-color: rgb(23, 26, 26);
-        text-align: center;
-        padding: 5px 20px 5px 20px;
-        margin: 1% 0.15% 1% 0.15%;
-        text-decoration: none;
-        border: 2px solid rgb(8, 8, 8);
-        border-radius: 5px;
-    }
-    
-    .dropdown:hover {
-        background-color: #333;
-    }
-    
-    .dropdown-content {
-        display: none;
-        position: fixed;
-        margin-top: 10px;
-        margin-left: -30px;
-        background-color: rgb(23, 26, 26);
-        min-width: 160px;
-        overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-    
-    .dropdown-content a {
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-    
-    .show {
-        display: block;
-    }
-    
-    .dropdown-links {
-        text-decoration: none;
-    }
-    
-    .dropdown-links:hover {
-        background-color: #333;
     }
