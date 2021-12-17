@@ -3,7 +3,7 @@
     $username = $_SESSION["username"];
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid ms-5">
+  <div class="container-fluid ms-5 me-5">
     <a class="navbar-brand" href="/index.php">YTFVO</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
           </div>
         </li>
       </ul>
-      <div class="d-flex me-5">
+      <div class="d-flex">
           <?php
             if($isLoggedIn){
                 echo '
@@ -52,16 +52,12 @@
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="./dashboard.php">Dashboard</a></li>
                     <li><a class="dropdown-item" href="./logout.php">Logout</a></li>
-                    <li><hr class="dropdown-divider"></li>
                   </ul>
                   <button type="button" class="btn btn-secondary">'.$username.'</button>
                 </div>';
             }
             else{
-                echo '
-                <button class="btn btn-secondary">
-                  <a href="./login.php" class="btn btn-secondary"> Login </a>
-                </button>';
+                echo '<a href="./login.php" class="btn btn-secondary"> Login </a>';
                   
             }
           ?>
