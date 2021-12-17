@@ -11,8 +11,8 @@
 <?php
 include("../login-required.php");
 include("../database.php");
-include("../isloggedin.php");
-include("../get-username.php");
+include("../comman-include.php");
+include("../comman-include.php");
 $url = $_REQUEST['url'];
 $tags = $_REQUEST['tags'];
 $sql = "INSERT INTO ytfvo (`url`,`tags`,`user`) VALUES ('$url','$tags','$username')";

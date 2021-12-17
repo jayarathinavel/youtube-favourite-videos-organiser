@@ -1,6 +1,5 @@
 <?php
-    include("./isloggedin.php");
-    $username = $_SESSION["username"];
+    include("./comman-include.php");
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">

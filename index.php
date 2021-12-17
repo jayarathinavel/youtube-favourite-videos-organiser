@@ -15,10 +15,10 @@
 </head>
 <body>
   <?php
-  include("./isloggedin.php");
+  include("./comman-include.php");
   include("./database.php");
   include("./apikey.php");
-  include("./get-username.php");
+  include("./comman-include.php");
   include("./youtube-api.php");
 
   //To fetch tags links
