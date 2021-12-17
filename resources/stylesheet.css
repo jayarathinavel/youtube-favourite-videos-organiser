@@ -89,13 +89,3 @@
     .title a {
         text-decoration: none;
     }
-    
-    .modify-update {
-        float: right;
-        font-size: 70%;
-    }
-    
-    .modify-delete {
-        float: right;
-        font-size: inherit;
-    }

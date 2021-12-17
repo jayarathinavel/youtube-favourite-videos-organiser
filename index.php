@@ -56,9 +56,13 @@
   
   //Main Container
   if(!$isLoggedIn){
-    echo '<div class="not-logged-in"> You are not logged in, <a href="./login.php"> login </a> to see your own content </div>';
+    echo '
+    <div class="div-center">
+    <span class="border border-warning p-2 m-2"> You are not logged in, <a href="./login.php"> login </a> to see your own content </span>
+    </div>
+    ';
   }
-  echo '<div class="thumbnail-container mt-3">';
+  echo '<div class="thumbnail-container">';
   if ($result->num_rows>0) {
     while ($row = $result->fetch_assoc()) {
 
