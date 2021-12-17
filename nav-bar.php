@@ -16,9 +16,21 @@
           <li class="nav-item m-1">
             <a class="btn btn-sm btn-secondary nav-link" href="/insert/form.html">Insert</a>
           </li>
-          <li class="nav-item m-1">
-            <a class="btn btn-sm btn-secondary nav-link" href="/index.php?editMode=true">Edit Mode</a>
-          </li>
+          <?php 
+            $edit = $_GET['editMode'];
+            if ($edit){
+              echo'
+                <li class="nav-item m-1">
+                  <a class="btn btn-sm btn-danger nav-link" href="/index.php">Exit Edit Mode</a>
+                </li>';
+            }
+            else{
+              echo'
+                <li class="nav-item m-1">
+                  <a class="btn btn-sm btn-secondary nav-link" href="/index.php?editMode=true">Edit Mode</a>
+                </li>';
+            }
+            ?>
           <li class="nav-item dropdown m-1">
             <a class="btn btn-sm btn-secondary nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tags </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

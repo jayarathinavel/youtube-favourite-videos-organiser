@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./resources/stylesheet.css">
   <link href="./resources/bootwatch-themes/<?php echo $theme; ?>/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   <script src="./resources/script.js"></script>
@@ -72,18 +73,22 @@
       $id = $row['sequence'];
 
       echo '
-    <div class="thumbnail-div"><img src = "'.$thumbnail_url.'" class="thumbnail" />
-    <a href="'.$url.'" title="'.$title.'" ><p class="title">'.$title.'</a></p>
-    <span class="tags">' .$tags.'</span>
-    <span class="duration">'.$duration.'</span>';
-    $edit = $_GET['editMode'];
-    if ($edit){
-    echo'
-    <sapn class="modify-update"><a href="./update/update.php?update=true&updateId='.$id.'" style="color:green;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></span>
-    &nbsp;
-    <sapn class="modify-delete"><a href="./delete.php?delete=true&deleteId='.$id.'" style="color:red;"><i class="fa fa-trash" aria-hidden="true"></i></a></span>&nbsp;';
-    }
-    echo '</div>';
+    <div class="thumbnail-div">';
+      $edit = $_GET['editMode'];
+      if ($edit){
+      echo'
+      <div class="d-flex mb-1"><strong class="me-auto"></strong>
+      <a href="./update/update.php?update=true&updateId='.$id.'"><span class="badge bg-warning"><i class="bi bi-pencil-fill"></i></span></a>&nbsp;
+      <a href="./delete.php?delete=true&deleteId='.$id.'"><span class="badge bg-danger"><i class="bi bi-trash-fill "></i></span></a>&nbsp;
+      </div>
+      ';
+      }
+      echo '
+      <img src = "'.$thumbnail_url.'" class="thumbnail" />
+      <a href="'.$url.'" title="'.$title.'" ><p class="title">'.$title.'</a></p>
+      <span class="tags">' .$tags.'</span>
+      <span class="duration">'.$duration.'</span>
+    </div>';
     }
   } 
   else {
