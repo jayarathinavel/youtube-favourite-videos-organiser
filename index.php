@@ -54,7 +54,7 @@
   //Navbar
   include("./nav-bar.php");
   
-  //Main Container
+  //Log in warning
   if(!$isLoggedIn){
     echo '
     <div class="div-center">
@@ -78,14 +78,16 @@
       $tags = $row['tags'];
       $id = $row['sequence'];
       include("./update/update-form.php");
+      include("./update/delete-warning.php");
       echo '
     <div class="thumbnail-div">';
       $edit = $_GET['editMode'];
       if ($edit){
       echo'
-      <div class="d-flex mb-1"><strong class="me-auto"></strong>
-      <a> <span class="badge bg-warning" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropForEdit'.$id.'" ><i class="bi bi-pencil-fill"></i></span></a>&nbsp;
-      <a href="./delete.php?delete=true&deleteId='.$id.'"><span class="badge bg-danger"><i class="bi bi-trash-fill "></i></span></a>&nbsp;
+      <div class="d-flex mb-1">
+        <strong class="me-auto"></strong>
+        <a> <span class="badge bg-warning" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropForEdit'.$id.'" ><i class="bi bi-pencil-fill"></i></span></a>&nbsp;
+        <a> <span class="badge bg-danger" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropForDelete'.$id.'" ><i class="bi bi-trash-fill "></i></span></a>&nbsp;
       </div>
       ';
       }
