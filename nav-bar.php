@@ -37,7 +37,7 @@
                 for ($i = 0; $i < count($tagsSingle); $i++) {
                     if ($tagsUnique[$i]) { //To filter the empty array values
                         if($tagsUnique[$i] == $_GET['tagName']){ //For Default value in Select
-                        echo '<li><a class="dropdown-item" href="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '">' . $tagsUnique[$i] . '</a></li>';
+                        echo '<li><a class="dropdown-item active" href="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '">' . $tagsUnique[$i] . '</a></li>';
                         }
                         else{
                         echo '<li><a class="dropdown-item" href="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '">' . $tagsUnique[$i] . '</a></li>';
@@ -47,6 +47,15 @@
               ?>
             </ul>
           </li>
+          <?php
+             if (isset($_GET['isTagSelected'])) {
+              echo '
+                <li class="nav-item m-1">
+                  <a class="btn btn-sm btn-success nav-link" href="/index.php">View all</a>
+                </li>
+              ';
+            }
+          ?>
       </ul>
       <?php
         if($isLoggedIn){ echo '

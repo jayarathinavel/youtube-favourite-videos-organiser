@@ -62,6 +62,9 @@
     </div>
     ';
   }
+  if (isset($_GET['isTagSelected'])) {
+    echo '<h5 class="m-3">'.$_GET['tagName'].' :  </h5>';
+  }
   echo '<div class="thumbnail-container">';
   if ($result->num_rows>0) {
     while ($row = $result->fetch_assoc()) {
@@ -75,7 +78,6 @@
       $duration = getDuration($videoID, $apikey);
       $tags = $row['tags'];
       $id = $row['sequence'];
-
       echo '
     <div class="thumbnail-div">';
       $edit = $_GET['editMode'];
