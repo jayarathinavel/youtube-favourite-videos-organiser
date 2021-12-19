@@ -1,5 +1,6 @@
 <?php
     include("./comman-include.php");
+    include("./insert/insert-form.php")
 ?>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -12,8 +13,13 @@
           <li class="nav-item m-1">
             <a class=" btn btn-sm btn-secondary nav-link" href="/index.php">Home</a>
           </li> 
-          <li class="nav-item m-1">
+          <!-- <li class="nav-item m-1">
             <a class="btn btn-sm btn-secondary nav-link" href="/insert/form.html">Insert</a>
+          </li> -->
+          <li class="nav-item m-1">
+            <button type="button" class="btn btn-sm btn-secondary nav-link"" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Insert
+            </button>          
           </li>
           <?php 
             $edit = $_GET['editMode'];
