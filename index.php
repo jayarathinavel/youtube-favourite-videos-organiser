@@ -68,7 +68,6 @@
   echo '<div class="thumbnail-container">';
   if ($result->num_rows>0) {
     while ($row = $result->fetch_assoc()) {
-
       $toSplit = explode('=', $row['url']);
       $videoID = $toSplit[1];
 
@@ -78,13 +77,14 @@
       $duration = getDuration($videoID, $apikey);
       $tags = $row['tags'];
       $id = $row['sequence'];
+      include("./update/update-form.php");
       echo '
     <div class="thumbnail-div">';
       $edit = $_GET['editMode'];
       if ($edit){
       echo'
       <div class="d-flex mb-1"><strong class="me-auto"></strong>
-      <a href="./update/update.php?update=true&updateId='.$id.'"><span class="badge bg-warning"><i class="bi bi-pencil-fill"></i></span></a>&nbsp;
+      <a> <span class="badge bg-warning" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdropForEdit'.$id.'" ><i class="bi bi-pencil-fill"></i></span></a>&nbsp;
       <a href="./delete.php?delete=true&deleteId='.$id.'"><span class="badge bg-danger"><i class="bi bi-trash-fill "></i></span></a>&nbsp;
       </div>
       ';
@@ -100,9 +100,6 @@
   else {
     echo "No results maame ";
   }
-
-  echo '</div>';
-
   $conn->close();
   ?>
 
