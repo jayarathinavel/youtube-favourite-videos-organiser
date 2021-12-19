@@ -17,10 +17,22 @@
           </li>
           <?php 
             $edit = $_GET['editMode'];
-            if ($edit){
+            if ($edit && !(isset($_GET['isTagSelected']))){
               echo'
                 <li class="nav-item m-1">
                   <a class="btn btn-sm btn-danger nav-link" href="/index.php">Exit Edit Mode</a>
+                </li>';
+            }
+            elseif(isset($_GET['isTagSelected']) && !$edit){
+              echo'
+                <li class="nav-item m-1">
+                  <a class="btn btn-sm btn-secondary nav-link" href="/index.php?editMode=true&isTagSelected=true&tagName='.$_GET['tagName'].'">Edit Mode</a>
+                </li>';
+            }
+            elseif(isset($_GET['isTagSelected']) && $edit){
+              echo'
+                <li class="nav-item m-1">
+                  <a class="btn btn-sm btn-danger nav-link" href="/index.php?isTagSelected=true&tagName='.$_GET['tagName'].'">Exit Edit Mode<</a>
                 </li>';
             }
             else{
@@ -35,7 +47,7 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <?php
                 for ($i = 0; $i < count($tagsSingle); $i++) {
-                    if ($tagsUnique[$i]) { //To filter the empty array values
+                    if ($tagsUnique[$i] && !$edit) { //To filter the empty array values
                         if($tagsUnique[$i] == $_GET['tagName']){ //For Default value in Select
                         echo '<li><a class="dropdown-item active" href="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '">' . $tagsUnique[$i] . '</a></li>';
                         }
@@ -43,15 +55,31 @@
                         echo '<li><a class="dropdown-item" href="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '">' . $tagsUnique[$i] . '</a></li>';
                         }
                     }
+                    if ($tagsUnique[$i] && $edit) { //To filter the empty array values
+                      if($tagsUnique[$i] == $_GET['tagName']){ //For Default value in Select
+                      echo '<li><a class="dropdown-item active" href="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '&editMode=true">' . $tagsUnique[$i] . '</a></li>';
+                      }
+                      else{
+                      echo '<li><a class="dropdown-item" href="/index.php?isTagSelected=true&tagName=' . $tagsUnique[$i] . '&editMode=true">' . $tagsUnique[$i] . '</a></li>';
+                      }
+                  }
                 }
               ?>
             </ul>
           </li>
           <?php
-             if (isset($_GET['isTagSelected'])) {
+            if (isset($_GET['isTagSelected']) && !$edit) {
               echo '
                 <li class="nav-item m-1">
                   <a class="btn btn-sm btn-success nav-link" href="/index.php">View all</a>
+                </li>
+              ';
+            }
+
+            elseif (isset($_GET['isTagSelected']) && $edit) {
+              echo '
+                <li class="nav-item m-1">
+                  <a class="btn btn-sm btn-success nav-link" href="/index.php?editMode=true">View all</a>
                 </li>
               ';
             }
