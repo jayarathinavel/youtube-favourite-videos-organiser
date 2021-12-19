@@ -17,9 +17,9 @@
             <a class="btn btn-sm btn-secondary nav-link" href="/insert/form.html">Insert</a>
           </li> -->
           <li class="nav-item m-1">
-            <button type="button" class="btn btn-sm btn-secondary nav-link"" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <a type="button" class="btn btn-sm btn-secondary nav-link"" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Insert
-            </button>          
+            </a>          
           </li>
           <?php 
             $edit = $_GET['editMode'];
@@ -94,7 +94,7 @@
       <?php
         if($isLoggedIn){ echo '
           <ul class="navbar-nav">
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown m-1">
                   <a class="btn btn-sm btn-secondary nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> '.$username.' </a>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="./dashboard.php">Dashboard</a></li>
@@ -106,7 +106,7 @@
         else{
           echo '
           <ul class="navbar-nav">
-            <li class="nav-item btn btn-sm btn-secondary ms-2 me-2">
+            <li class="nav-item btn btn-sm btn-secondary m-1">
               <a href="./login.php" class="nav-link"> Login </a>
             </li>
           </ul>';   
