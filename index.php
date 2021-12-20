@@ -21,25 +21,6 @@
   include("./comman-include.php");
   include("./youtube-api.php");
 
-  //To fetch tags links
-  $tagsQuery = "SELECT tags FROM ytfvo WHERE user = '$username'";
-  $tagsResult = $conn->query($tagsQuery);
-  $tagsArray = array();
-  $tagsSingle = array();
-
-  while ($tagsRow = $tagsResult->fetch_assoc()) {
-    $tagsArray[] = $tagsRow['tags'];
-  }
-
-  for ($i = 0; $i < count($tagsArray); $i++) {
-    $splitted = explode(",", $tagsArray[$i]);
-    for ($j = 0; $j < count($splitted); $j++) {
-      $tagsSingle[] = trim($splitted[$j]);
-    }
-  }
-
-  $tagsUnique = array_unique($tagsSingle);
-
   //Main Queries
   if (isset($_GET['isTagSelected'])) {
     $tagname = $_GET['tagName'];

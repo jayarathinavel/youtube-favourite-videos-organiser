@@ -53,6 +53,24 @@
             <a class="btn btn-sm btn-secondary nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Tags </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <?php
+              //To fetch tags links
+                $tagsQuery = "SELECT tags FROM ytfvo WHERE user = '$username'";
+                $tagsResult = $conn->query($tagsQuery);
+                $tagsArray = array();
+                $tagsSingle = array();
+
+                while ($tagsRow = $tagsResult->fetch_assoc()) {
+                  $tagsArray[] = $tagsRow['tags'];
+                }
+
+                for ($i = 0; $i < count($tagsArray); $i++) {
+                  $splitted = explode(",", $tagsArray[$i]);
+                  for ($j = 0; $j < count($splitted); $j++) {
+                    $tagsSingle[] = trim($splitted[$j]);
+                  }
+                }
+
+                $tagsUnique = array_unique($tagsSingle);
                 for ($i = 0; $i < count($tagsSingle); $i++) {
                     if ($tagsUnique[$i] && !$edit) { //To filter the empty array values
                         if($tagsUnique[$i] == $_GET['tagName']){ //For Default value in Select
