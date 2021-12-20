@@ -42,22 +42,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($conn);
 }
 ?>
- 
+<?php 
+    include("./comman-include.php");
+    include("./nav-bar.php");
+    $username = '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/stylesheet.css">
+    <link href="./resources/bootwatch-themes/<?php echo $theme; ?>/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="./resources/script.js"></script>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
-    </style>
 </head>
 <body>
     <div style="display: flex;flex-wrap: wrap;justify-content: center;">
-        <div class="wrapper">
-            <h2 class="text-center">Reset Password</h2>
+        <div class="m-4">
+            <h4 class="text-center">Reset Password</h4>
             <p>Please fill out this form to reset your password.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
                 <div class="form-group">
@@ -70,9 +77,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
                     <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <input type="submit" class="btn btn-success" value="Submit">
-                    <a class="btn btn-link ml-2" href="dashboard.php">Cancel</a>
+                    <a class="btn btn-danger ms-2" href="dashboard.php">Cancel</a>
                 </div>
             </form>
         </div>
