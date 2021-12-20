@@ -1,10 +1,10 @@
 <?php
-    $servername = getenv('DB_HOST');
-    $username = getenv('DB_USERNAME');
-    $password = getenv('DB_PASSWORD');
+    $dbservername = getenv('DB_HOST');
+    $dbusername = getenv('DB_USERNAME');
+    $dbpassword = getenv('DB_PASSWORD');
     $dbname = getenv('DB_NAME');
   
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  $conn = mysqli_connect($dbservername, $dbusername, $dbpassword, $dbname);
   if ($conn->connect_error) {
     die("Connection failed : " . $conn->connect_error);
   }
