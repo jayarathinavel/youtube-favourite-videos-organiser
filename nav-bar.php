@@ -1,6 +1,7 @@
 <?php
     include("./comman-include.php");
-    include("./insert/insert-form.php")
+    include("./insert/insert-form.php");
+    include("./database.php");
 ?>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
