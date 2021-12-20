@@ -1,7 +1,7 @@
 <?php
+    include("./database.php");
     include("./comman-include.php");
     include("./insert/insert-form.php");
-    include("./database.php");
 ?>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -71,6 +71,7 @@
                 }
 
                 $tagsUnique = array_unique($tagsSingle);
+
                 for ($i = 0; $i < count($tagsSingle); $i++) {
                     if ($tagsUnique[$i] && !$edit) { //To filter the empty array values
                         if($tagsUnique[$i] == $_GET['tagName']){ //For Default value in Select
