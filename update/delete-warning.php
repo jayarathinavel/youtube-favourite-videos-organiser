@@ -15,13 +15,11 @@
           <?php
             echo'
             <h5 class="mb-3" > Are you sure want to delete ? </h5>
-            <a href="../update/delete.php?delete=true&deleteId='.$id.'" class="btn btn-danger"> Delete </a>
+            <a href="../update/delete.php?delete=true&deleteId='.$id.'" class="btn btn-danger"> Yes </a>
             ';
             ?>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
       </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-        </div>
     </div>
   </div>
 </div>

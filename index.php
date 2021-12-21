@@ -35,7 +35,7 @@
   //Log in warning
   if(!$isLoggedIn){
     echo '
-    <div class="div-center">
+    <div class="div-center mt-2">
     <span class="border border-warning p-2 m-2"> You are not logged in, <a href="./login.php"> login </a> to see your own content </span>
     </div>
     ';

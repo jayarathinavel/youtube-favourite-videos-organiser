@@ -16,4 +16,11 @@
     if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true){
     $isLoggedIn = true;
     }
+
+    //To Hide other buttons
+    $requestUri = $_SERVER['REQUEST_URI'];
+    if(preg_match('/\bdashboard\b/', $requestUri) || preg_match('/\blogin\b/', $requestUri) || preg_match('/\bregister\b/', $requestUri) || preg_match('/\breset-password\b/', $requestUri)){
+        $hideInsertEditTag = true;
+    }
+    
 ?>
