@@ -70,7 +70,7 @@
       }
       echo '
       <img src = "'.$thumbnail_url.'" class="thumbnail" />
-      <a href="'.$url.'" title="'.$title.'" ><p class="title">'.$title.'</a></p>
+      <a href="'.$url.'" title="'.$title.'" target="_blank"><p class="title">'.$title.'</a></p>
       <span class="tags">' .$tags.'</span>
       <span class="duration">'.$duration.'</span>
     </div>';
