@@ -46,9 +46,8 @@
   echo '<div class="thumbnail-container">';
   if ($result->num_rows>0) {
     while ($row = $result->fetch_assoc()) {
-      $toSplit = explode('=', $row['url']);
-      $videoID = $toSplit[1];
-
+      $url = $row['url'];
+      $videoID = getVideoId($url);
       $title = getTitle($videoID, $apikey);
       $url = $row['url'];
       $thumbnail_url = getThumbnail($videoID);

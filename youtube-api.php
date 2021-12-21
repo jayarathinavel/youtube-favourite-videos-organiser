@@ -26,4 +26,22 @@
         $thumbnail_url = "https://i.ytimg.com/vi/".$videoID."/mqdefault.jpg";
         return $thumbnail_url;
     }
+
+    //To extract video id
+    function getVideoId($url){
+        $videoID = null;
+        if(containsWord($url, 'watch')){
+            $toSplit = explode('=', $url);
+            $videoID = $toSplit[1];
+        }
+        if(containsWord($url, 'youtu.be')){
+            $toSplit = explode('/', $url);
+            $videoID = $toSplit[3];
+        }
+        return $videoID;
+    }
+
+    function containsWord($str, $word){
+        return !!preg_match('#\\b' . preg_quote($word, '#') . '\\b#i', $str);
+    }
   ?>
