@@ -13,8 +13,8 @@
       </div>
       <div class="modal-body">
           <form action="../insert/action.php"  method="POST" enctype="multipart/form-data">
-            <input class="form-control mt-3" type="text" name="url" id="url" placeholder="URL" aria-label="default input example" required>
-            <input class="form-control mt-3 mb-3" type="text" name="tags" id="tags" placeholder="Tags" aria-label="default input example" required>
+            <input class="form-control mt-3 bg-secondary text-light" type="text" name="url" id="url" placeholder="URL" aria-label="default input example" required>
+            <input class="form-control mt-3 mb-3 bg-secondary text-light" type="text" name="tags" id="tags" placeholder="Tags" aria-label="default input example" required>
             <input type="submit" value="Insert" class="btn btn-success">
           </form>
       </div>
