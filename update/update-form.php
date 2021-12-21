@@ -24,7 +24,7 @@
             $editValues = $values->fetch_assoc();
             echo'
             <input class="form-control mt-3 bg-secondary text-light" type="text" name="url" id="url" placeholder="URL" aria-label="default input example" value="'.$editValues['url'].'" required>
-            <input class="form-control mt-3 mb-3 bg-secondary text-light" type="text" name="tags" id="tags" placeholder="Tags" aria-label="default input example" value="'.$editValues['tags'].'" required>
+            <input class="form-control mt-3 mb-3 bg-secondary text-light" type="text" name="tags" id="tags" placeholder="Tags" aria-label="default input example" value="'.$editValues['tags'].'">
             <input type="number" name="sequence" id="sequence" value="'.$editValues['sequence'].'" hidden><br/>
             <input type="submit" value="Update" class="btn btn-success">
             ';
