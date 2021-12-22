@@ -15,14 +15,18 @@
   include("./comman-include.php");
   include("./database.php");
   include("./apikey.php");
-  include("./comman-include.php");
   include("./youtube-api.php");
 
   //Main Queries
+  $tagname = $_GET['tagName'];
+  $languagename = $_GET['languageName'];
   if (isset($_GET['isTagSelected'])) {
-    $tagname = $_GET['tagName'];
     $sql = "SELECT `url`,`tags`,`sequence` FROM ytfvo WHERE tags LIKE '%$tagname%' AND user = '$username' ORDER BY `sequence`";
-  } else {
+  }
+  elseif (isset($_GET['isLanguageSelected'])) {
+    $sql = "SELECT `url`,`tags`,`sequence` FROM ytfvo WHERE language = '$languagename' AND user = '$username' ORDER BY `sequence`";
+  }
+  else {
     $sql = "SELECT `url`,`tags`,`sequence` FROM ytfvo WHERE user = '$username' ORDER BY `sequence`";
   }
 

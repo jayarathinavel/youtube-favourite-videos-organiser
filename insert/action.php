@@ -12,13 +12,16 @@
 include("../login-required.php");
 include("../database.php");
 include("../comman-include.php");
-include("../comman-include.php");
 $url = $_REQUEST['url'];
 $tags = $_REQUEST['tags'];
-$sql = "INSERT INTO ytfvo (`url`,`tags`,`user`) VALUES ('$url','$tags','$username')";
+$language = $_REQUEST['language'];
+
+$sql = "INSERT INTO ytfvo (`url`,`tags`,`user`,`language`) VALUES ('$url','$tags','$username','$language')";
   
 if ($conn->query($sql) === TRUE) {
-} else {
+} 
+
+else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();

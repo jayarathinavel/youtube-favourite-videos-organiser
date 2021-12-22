@@ -27,6 +27,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <input class="form-control mt-3 mb-3 bg-secondary text-light" type="text" name="tags" id="tags" placeholder="Tags" aria-label="default input example">
+            <input class="form-control mt-3 mb-3 bg-secondary text-light" type="text" name="language" id="language" placeholder="Language" aria-label="default input example">
             <input type="submit" value="Insert" class="btn btn-success">
           </form>
       </div>
