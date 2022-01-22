@@ -9,7 +9,6 @@
 <body>
   
 <?php
-include("../login-required.php");
 include("../database.php");
 include("../comman-include.php");
 $url = $_REQUEST['url'];
