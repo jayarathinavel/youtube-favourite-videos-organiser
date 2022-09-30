@@ -1,7 +1,6 @@
 <h1>YouTube Favourite Vidoes Organiser </h1>
 <h6> (Still Under Development) </h6>
 <b> URL : </b>
-<a href="https://ytfvo.herokuapp.com/"> https://ytfvo.herokuapp.com </a> and <br/>
 <a href="http://ytfvo.infinityfreeapp.com/"> http://ytfvo.infinityfreeapp.com </a>
 
 <img src="resources/ytfvo.png" alt="Screenshot">
@@ -16,7 +15,7 @@
     <li>Responsive Model. (Can view in Mobile too) </li>
 </ul>
 <b> Language : </b> PHP, HTML and CSS (Bootstrap) <br/>
-<b> Deployed on : </b> <a href="https://infinityfree.net/"> Infinityfree.net</a> and <a href="https://herokuapp.com/"> herokuapp.com </a> <br />
+<b> Deployed on : </b> <a href="https://infinityfree.net/"> Infinityfree.net</a> <br />
 <b> Database : </b> MySQL from Infinityfree and Clever-cloud <br />
 <b> Icons : </b> Bootstrap icons <br />
 <b> Database table structure : </b> Refer SQL.sql in root of the repo <br/>
