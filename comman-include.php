@@ -14,7 +14,7 @@
         $username = $_SESSION["username"];
     }
     else{
-        $username = 'admin';
+        $username = 'demo';
     }
 
     //To Hide other buttons

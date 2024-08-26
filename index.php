@@ -53,6 +53,10 @@
       $url = $row['url'];
       $videoID = getVideoId($url);
       $title = getTitle($videoID, $apikey);
+      if($title == null) {
+        echo '<script> console.log("Error fetching details for: '.$url.'") </script>';
+        continue;
+      }
       $url = $row['url'];
       $thumbnail_url = getThumbnail($videoID);
       $duration = getDuration($videoID, $apikey);
